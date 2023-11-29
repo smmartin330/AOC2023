@@ -32,21 +32,21 @@ class Puzzle():
         return True
 
 def main():
-    parser = argparse.ArgumentParser(description=f'AOC2022 Puzzle Day { DAY }')
+    parser = argparse.ArgumentParser(description=f'AOC2023 Puzzle Day { DAY }')
     parser.add_argument("-p", "--showpuzzle", help="Display Puzzle Text", action='store_true')
     parser.add_argument("-s", "--showsample", help="Display Sample Input", action='store_true')
     args = parser.parse_args()
     
     if args.showpuzzle:
-        print(f"###############\nAOC 2022 DAY {DAY} PUZZLE TEXT\n###############")
+        print(f"###############\nAOC 2023 DAY {DAY} PUZZLE TEXT\n###############")
         print(PUZZLE_TEXT)
     
     if args.showsample:
-        print(f"###############\nAOC 2022 DAY {DAY} SAMPLE INPUT\n###############")
+        print(f"###############\nAOC 2023 DAY {DAY} SAMPLE INPUT\n###############")
         print(SAMPLE_INPUT.strip())
-        print(f"\n###############\nAOC 2022 DAY {DAY} P1 SAMPLE SOLUTION\n###############")
+        print(f"\n###############\nAOC 2023 DAY {DAY} P1 SAMPLE SOLUTION\n###############")
         print(P1_SAMPLE_SOLUTION)
-        print(f"\n###############\nAOC 2022 DAY {DAY} P2 SAMPLE SOLUTION\n###############")
+        print(f"\n###############\nAOC 2023 DAY {DAY} P2 SAMPLE SOLUTION\n###############")
         print(P2_SAMPLE_SOLUTION)
     
 
