@@ -1120,7 +1120,7 @@ class Puzzle():
                     for k,v in self.strings.items():
                         if k in text_buffer:
                             this_line += v
-                            text_buffer = text_buffer
+                            text_buffer = text_buffer[-1]
                             continue
             self.p2_solution += int(this_line[0] + this_line[-1])
         return True
