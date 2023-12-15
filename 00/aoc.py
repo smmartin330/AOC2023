@@ -4,12 +4,6 @@
 
 import numpy
 
-P1_SAMPLE = '''
-'''
-
-P2_SAMPLE = P1_SAMPLE
-
-
 
 class Grid: # We're bringing this back from 2022! Maybe!
     def __init__(self, raw_grid) -> None:
@@ -44,6 +38,11 @@ class Grid: # We're bringing this back from 2022! Maybe!
             for y in range(0, self.height):
                 self.every_node.append((x, y))
 
+    def g_rot90(self,rotations,rot_t=False):
+        self.gridmap = numpy.rot90(self.gridmap,rotations).tolist()
+        if rot_t == True:
+            self.gridmap_t = numpy.transpose(self.gridmap).tolist()
+        
     def pos(self, coordinate, x_offset=0, y_offset=0):
         """Returns the value either at a particular coordinate or at a particular offset from that coordinate.
 

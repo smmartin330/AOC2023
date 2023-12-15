@@ -30,12 +30,12 @@ class Puzzle():
         self.input_text = input_text
         self.input_list = input_text.strip().split('\n')
         
-        self.dishes = Grid(self.input_list)
+        
 
 
     def p1(self):
         self.p1_solution = 0
-
+        self.dishes = Grid(self.input_list)
         move_rocks(grid=self.dishes)
         for y in range(0,self.dishes.height):
             rocks = self.dishes.gridmap[y].count('O')
@@ -47,30 +47,22 @@ class Puzzle():
 
     def p2(self):
         self.p2_solution = 0
-        
-        check_score = 0
+        self.dishes = Grid(self.input_list)
         for spins in range (0,1000000000):
-            self.dishes.g_rot90(-1)
-            move_rocks(grid=self.dishes)
-            
-            if spins % 100000 == 0:
-                print(f'Spins: {spins}')
-                # current_score = 0
-                # for y in range(0,self.dishes.height):
-                #     rocks = self.dishes.gridmap[y].count('O')
-                #     row_value = self.dishes.height - y
-                #     current_score += rocks * row_value
-                    
-                # if current_score == check_score:
-                #     self.p2_solution = row_score
-                #     return True
-                # else: check_score =  current_score
-        
+            move_rocks(grid=self.dishes)  # Roll north
+            self.dishes.g_rot90(-1)  # speeeeeeen
+            move_rocks(grid=self.dishes)  # Roll West
+            self.dishes.g_rot90(-1)  # speeeeeeen
+            move_rocks(grid=self.dishes)  # Roll south
+            self.dishes.g_rot90(-1)  # speeeen
+            move_rocks(grid=self.dishes)  # roll east
+            self.dishes.g_rot90(-1)  # speeeeen
+                        
         for y in range(0,self.dishes.height):
             rocks = self.dishes.gridmap[y].count('O')
             row_value = self.dishes.height - y
             row_score = rocks * row_value
-            self.p1_solution += row_score
+            self.p2_solution += row_score
         
         return True
 
