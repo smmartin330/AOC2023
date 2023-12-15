@@ -17,16 +17,17 @@ def recursive_check(pattern, required_smudges = 0, row = 1, offset = 0, smudges 
         top = pattern[row - (offset + 1)]
     except:
         return [ True, row ]
+    
     if bottom == top:
-        return recursive_check(pattern,required_smudges=required_smudges,row=row,offset=offset+1,smudges=smudges,)
-    else:
         for x in range(0, len(bottom)):
             if top[x] != bottom[x]:
                 smudges += 1
-                if smudges > required_smudges:
-                    return recursive_check(pattern,required_smudges=required_smudges,row=row+1,offset=0,smudges=0)
-                else:
-                    return recursive_check(pattern,required_smudges=required_smudges,row=row,offset=offset+1,smudges=smudges)
+    else:
+        return recursive_check(pattern,required_smudges=required_smudges,row=row,offset=offset+1,smudges=smudges)
+    if smudges > required_smudges:
+        return recursive_check(pattern,required_smudges=required_smudges,row=row+1,offset=0,smudges=0)
+    else:
+        return recursive_check(pattern,required_smudges=required_smudges,row=row,offset=offset+1,smudges=smudges)
     
     return recursive_check(pattern,required_smudges=required_smudges,row=row+1,offset=0,smudges=0)
                 
