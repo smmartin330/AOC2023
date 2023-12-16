@@ -1,5 +1,3 @@
-puzzle_data.py
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -131,3 +129,5 @@ dmypy.json
 .pyre/
 .vscode/settings.json
 
+# Puzzle Data
+puzzle_data.*
